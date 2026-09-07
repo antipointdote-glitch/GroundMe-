@@ -46,6 +46,7 @@ GroundMe 因此采用了一个非常简单的产品思路：
 它更像是一个随时可以拿出来使用的“小工具”，而不是一个需要长期经营的生活方式产品。
 
 ---
+<img width="1062" height="1352" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/1ad35d77-cf81-4553-96f8-9e2f62fb11e0" />
 
 ## 🧩 核心功能
 
