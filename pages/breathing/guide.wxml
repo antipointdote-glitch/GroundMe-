@@ -1,0 +1,80 @@
+<!--pages/breathing/guide.wxml-->
+<view class="container {{isDarkMode ? 'dark-theme' : 'light-theme'}}">
+  <!-- 音乐控制按钮 -->
+  <view class="music-control">
+    <text class="music-note {{isMusicPlaying ? 'playing' : 'paused'}}" bindtap="toggleMusic">♪</text>
+  </view>
+
+  <!-- 顶部区域：进度指示器 + 标题 -->
+  <view class="top-section">
+    <!-- 进度指示器 -->
+    <view class="progress-dots">
+      <view wx:for="{{totalCount}}" wx:key="index" 
+            class="progress-dot {{index < currentCount ? 'active' : ''}}"></view>
+    </view>
+    
+    <!-- 标题 -->
+    <view class="header">
+      <view class="title">深呼吸练习</view>
+      <view class="subtitle" wx:if="{{showCounter}}">已完成 {{completedCount}}/{{totalCount}} 次呼吸</view>
+      <view class="subtitle" wx:else>通过呼吸练习放松身心</view>
+    </view>
+  </view>
+  
+  <!-- 呼吸动画区域 -->
+  <view class="breathing-animation">
+    <view class="breathing-square-container">
+      <!-- 外层方块 -->
+      <view class="square-outer {{breathingPhase === 'inhale' ? 'breathe-in' : breathingPhase === 'hold' ? 'breathe-hold' : breathingPhase === 'exhale' ? 'breathe-out' : breathingPhase === 'prepare' ? 'breathe-prepare' : 'breathe-rest'}}"></view>
+      <!-- 中层方块 -->
+      <view class="square-middle {{breathingPhase === 'inhale' ? 'breathe-in' : breathingPhase === 'hold' ? 'breathe-hold' : breathingPhase === 'exhale' ? 'breathe-out' : breathingPhase === 'prepare' ? 'breathe-prepare' : 'breathe-rest'}}"></view>
+      <!-- 内层方块 -->
+      <view class="square-inner {{breathingPhase === 'inhale' ? 'breathe-in' : breathingPhase === 'hold' ? 'breathe-hold' : breathingPhase === 'exhale' ? 'breathe-out' : breathingPhase === 'prepare' ? 'breathe-prepare' : 'breathe-rest'}}"></view>
+      <!-- 中心方块 -->
+      <view class="square-center forest-glow"></view>
+    </view>
+  </view>
+  
+  <!-- 引导文字区域 -->
+  <view class="guidance-section">
+    <view class="phase-text">
+      <view wx:if="{{breathingPhase === 'inhale'}}" class="breath-text">慢慢吸气...</view>
+      <view wx:elif="{{breathingPhase === 'hold'}}" class="breath-text">屏住呼吸...</view>
+      <view wx:elif="{{breathingPhase === 'exhale'}}" class="breath-text">慢慢呼气...</view>
+      <view wx:else class="breath-text">{{instruction}}</view>
+    </view>
+  </view>
+  
+  <!-- 操作按钮 -->
+  <view class="action-section">
+    <!-- 开始按钮 -->
+    <button class="btn btn-primary forest-glow" bindtap="startBreathing" wx:if="{{!started}}">
+      开始呼吸
+    </button>
+    
+    <!-- 下一次呼吸按钮 -->
+    <button class="btn {{isBreathing ? 'btn-disabled' : 'btn-primary forest-glow'}}" bindtap="nextBreath" disabled="{{isBreathing}}" wx:if="{{started && !completed}}">
+      继续下一次
+    </button>
+    
+    <!-- 完成后的按钮组 -->
+    <view wx:if="{{completed}}" class="completed-buttons">
+      <button class="btn btn-primary forest-glow" bindtap="nextStep">
+        继续练习
+      </button>
+      <button class="btn btn-outline" bindtap="goHome">
+        回到首页
+      </button>
+    </view>
+    
+    <!-- 跳过按钮 -->
+    <button class="btn btn-outline" bindtap="skipBreathing" wx:if="{{!completed}}">
+      {{completed > 0 ? '跳过剩余练习' : '跳过此步'}}
+    </button>
+  </view>
+  
+  <!-- 底部署名 -->
+  <view class="credit">
+    <text class="credit-text">room800 | Music By Zøe</text>
+  </view>
+</view>

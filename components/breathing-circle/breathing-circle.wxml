@@ -1,0 +1,9 @@
+<view class="breathing-circle-container">
+  <view 
+    class="breathing-circle" 
+    style="width: {{size}}rpx; height: {{size}}rpx; background-color: {{color}}; border: {{borderWidth}}px solid {{borderColor}}; transform: scale({{scale}}); opacity: {{opacity}};"
+  >
+    <view class="breathing-text" wx:if="{{text}}">{{text}}</view>
+    <view class="phase-text" wx:if="{{animating}}">{{phaseText}}</view>
+  </view>
+</view>

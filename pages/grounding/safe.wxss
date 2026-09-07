@@ -1,0 +1,240 @@
+/* pages/grounding/safe.wxss */
+
+/* 页面容器样式 */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 40rpx;
+  position: relative;
+  background: linear-gradient(135deg, var(--light-bg-secondary) 0%, var(--light-bg-accent) 50%, var(--light-bg-primary) 100%);
+  color: var(--light-text-primary);
+  transition: background 0.5s ease;
+  justify-content: space-between;
+}
+
+/* 深色主题页面背景 */
+.dark-theme {
+  background: linear-gradient(135deg, #1C2522 0%, #2A3A35 50%, #1C2522 100%) !important;
+  min-height: 100vh;
+  transition: background 0.5s ease;
+}
+
+/* 音乐控制按钮 */
+.music-control {
+  position: absolute;
+  top: 40rpx;
+  left: 40rpx;
+  z-index: 100;
+}
+
+.music-note {
+  font-size: 48rpx;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.music-note.playing {
+  color: #6B8A7A;
+}
+
+.music-note.paused {
+  color: #888888;
+}
+
+.music-note:active {
+  transform: scale(0.9);
+}
+
+/* 深色主题下的音乐音符 */
+.dark-theme .music-note.playing,
+page.dark .music-note.playing {
+  color: #6B8A7A;
+}
+
+.dark-theme .music-note.paused,
+page.dark .music-note.paused {
+  color: #666666;
+}
+
+/* 主要内容 */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 60rpx; /* 给音乐按钮留空间 */
+}
+
+/* 标题区域 */
+.header {
+  text-align: center;
+  margin-bottom: 60rpx;
+}
+
+.title {
+  font-size: 48rpx;
+  font-weight: 600;
+  color: var(--light-text-primary);
+  margin-bottom: 16rpx;
+}
+
+.dark-theme .title,
+page.dark .title {
+  color: var(--dark-text-primary);
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: var(--light-text-secondary);
+  line-height: 1.5;
+}
+
+.dark-theme .subtitle,
+page.dark .subtitle {
+  color: var(--dark-text-secondary);
+}
+
+/* 确认内容区域 */
+.affirmation-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40rpx;
+}
+
+.affirmation-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20rpx;
+  padding: 40rpx;
+  backdrop-filter: blur(20rpx);
+  border: 1rpx solid rgba(255, 255, 255, 0.2);
+  animation: pulse 3s infinite ease-in-out;
+  width: 100%;
+  max-width: 600rpx;
+}
+
+.dark-theme .affirmation-card,
+page.dark .affirmation-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.affirmation-text {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: var(--light-text-primary);
+  line-height: 1.6;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.dark-theme .affirmation-text,
+page.dark .affirmation-text {
+  color: var(--dark-text-primary);
+}
+
+.affirmation-text:last-child {
+  margin-bottom: 0;
+}
+
+.highlight {
+  color: #6B8A7A;
+  font-weight: 600;
+}
+
+.guidance-text {
+  font-size: 28rpx;
+  color: var(--light-text-secondary);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.dark-theme .guidance-text,
+page.dark .guidance-text {
+  color: var(--dark-text-secondary);
+}
+
+/* 操作按钮 */
+.action-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  margin-top: 40rpx;
+  margin-bottom: 80rpx; /* 增加底部间距，避免与署名重叠 */
+  flex-shrink: 0;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2rpx solid var(--light-border);
+  color: var(--light-text-primary);
+}
+
+.dark-theme .btn-outline,
+page.dark .btn-outline {
+  border-color: rgba(107, 138, 122, 0.3);
+  color: #6B8A7A;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--light-button-secondary);
+}
+
+.dark-theme .btn-outline:hover,
+page.dark .btn-outline:hover {
+  background: rgba(107, 138, 122, 0.1);
+}
+
+/* 底部署名 */
+.credit {
+  position: absolute;
+  bottom: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.credit-text {
+  font-size: 24rpx;
+  color: var(--light-text-tertiary);
+}
+
+.dark-theme .credit-text,
+page.dark .credit-text {
+  color: var(--dark-text-tertiary);
+}
+
+/* 脉动动画 */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20rpx rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 30rpx rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 20rpx rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.affirmation-section {
+  animation: fadeInUp 0.6s ease-out;
+}

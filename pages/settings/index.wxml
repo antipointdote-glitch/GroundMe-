@@ -1,0 +1,101 @@
+<!--pages/settings/index.wxml-->
+<view class="container {{isDarkMode ? 'dark-theme' : 'light-theme'}}">
+  <!-- 标题 -->
+  <view class="header">
+    <view class="title">设置</view>
+  </view>
+  
+  <!-- 设置内容 -->
+  <view class="main-content">
+    <!-- 音频设置 -->
+    <view class="setting-section">
+      <view class="section-title">音频设置</view>
+      
+      <!-- 背景音乐开关 -->
+      <view class="setting-item">
+        <view class="setting-label">
+          <text class="label-text">背景音乐</text>
+          <text class="label-desc">播放舒缓的背景音乐</text>
+        </view>
+        <switch class="setting-switch" checked="{{musicEnabled}}" bindchange="onMusicToggle"/>
+      </view>
+      
+      
+      <!-- 音乐音量 -->
+      <view class="setting-item" wx:if="{{musicEnabled}}">
+        <view class="setting-label">
+          <text class="label-text">音乐音量</text>
+        </view>
+        <view class="volume-control">
+          <slider class="volume-slider" 
+                  value="{{musicVolume}}" 
+                  min="0" 
+                  max="100" 
+                  bindchange="onMusicVolumeChange"
+                  activeColor="var(--light-button-primary)"
+                  backgroundColor="var(--light-border)"/>
+          <text class="volume-text">{{musicVolume}}%</text>
+        </view>
+      </view>
+      
+      <!-- 音效开关 -->
+      <view class="setting-item">
+        <view class="setting-label">
+          <text class="label-text">音效</text>
+          <text class="label-desc">按钮点击和交互音效</text>
+        </view>
+        <switch class="setting-switch" checked="{{soundEnabled}}" bindchange="onSoundToggle"/>
+      </view>
+      
+      <!-- 音效音量 -->
+      <view class="setting-item" wx:if="{{soundEnabled}}">
+        <view class="setting-label">
+          <text class="label-text">音效音量</text>
+        </view>
+        <view class="volume-control">
+          <slider class="volume-slider" 
+                  value="{{soundVolume}}" 
+                  min="0" 
+                  max="100" 
+                  bindchange="onSoundVolumeChange"
+                  activeColor="var(--light-button-primary)"
+                  backgroundColor="var(--light-border)"/>
+          <text class="volume-text">{{soundVolume}}%</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 其他设置 -->
+    <view class="setting-section">
+      <view class="section-title">其他设置</view>
+      
+      <!-- 震动反馈 -->
+      <view class="setting-item">
+        <view class="setting-label">
+          <text class="label-text">震动反馈</text>
+          <text class="label-desc">按钮点击时的震动反馈</text>
+        </view>
+        <switch class="setting-switch" checked="{{vibrateEnabled}}" bindchange="onVibrateToggle"/>
+      </view>
+      
+      <!-- 动画效果 -->
+      <view class="setting-item">
+        <view class="setting-label">
+          <text class="label-text">动画效果</text>
+          <text class="label-desc">页面切换和元素动画</text>
+        </view>
+        <switch class="setting-switch" checked="{{animationEnabled}}" bindchange="onAnimationToggle"/>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 返回按钮 -->
+  <view class="action-section">
+    <button class="btn btn-outline" bindtap="goBack">返回</button>
+  </view>
+  
+  <!-- 底部署名 -->
+  <view class="credit">
+    <text class="credit-text">room800 | Music By Zøe</text>
+  </view>
+</view>

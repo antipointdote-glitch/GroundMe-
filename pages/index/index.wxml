@@ -1,0 +1,39 @@
+<view class="container {{isDarkMode ? 'dark-theme' : 'light-theme'}}">
+  <!-- 音乐控制按钮 -->
+  <view class="music-control" wx:if="{{audioReady}}">
+    <text class="music-note {{isPlaying ? 'playing' : 'paused'}}" bindtap="toggleMusic">♪</text>
+  </view>
+
+  <!-- 主题切换按钮 -->
+  <view class="theme-toggle" bindtap="toggleTheme">
+    <text class="theme-icon">{{isDarkMode ? '☀️' : '🌙'}}</text>
+  </view>
+
+  <!-- 临时音频测试按钮 - 已移除，功能正常 -->
+
+  <!-- 标题部分 -->
+  <view class="header">
+    <view class="title">GroundMe</view>
+    <view class="subtitle">心安安</view>
+  </view>
+
+  <!-- 呼吸方块 - 设计成方块形状 -->
+  <view class="breathing-section">
+    <view class="breath-square {{animating ? 'breathing' : ''}}"></view>
+  </view>
+
+  <!-- 描述文字 -->
+  <view class="description">
+    <text class="description-text">快速缓解焦虑的心理急救工具</text>
+  </view>
+
+  <!-- 开始按钮 - 使用bindtap跳转，避免navigator问题 -->
+  <view class="footer">
+    <view class="btn btn-primary forest-glow" bindtap="startPractice">开始练习</view>
+  </view>
+
+  <!-- 署名 -->
+  <view class="credit">
+    <text class="credit-text">room800 | Music By Zøe</text>
+  </view>
+</view>

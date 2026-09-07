@@ -1,0 +1,324 @@
+/* 强力清除所有可能造成方框的默认样式 */
+text, view {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx;
+  position: relative;
+  background: linear-gradient(135deg, var(--light-bg-secondary) 0%, var(--light-bg-accent) 50%, var(--light-bg-primary) 100%);
+  color: var(--light-text-primary);
+  transition: background 0.5s ease;
+}
+
+.dark-theme {
+  background: linear-gradient(135deg, var(--dark-bg-primary) 0%, var(--dark-bg-secondary) 50%, var(--dark-bg-primary) 100%) !important;
+  color: var(--dark-text-primary) !important;
+  transition: background 0.5s ease;
+}
+
+/* 主题切换按钮 */
+.theme-toggle {
+  position: absolute;
+  top: 40rpx;
+  right: 40rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10rpx);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-icon {
+  font-size: 36rpx;
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80rpx;
+}
+
+.title {
+  font-size: 72rpx;
+  font-weight: 300;
+  margin-bottom: 16rpx;
+  letter-spacing: 4rpx;
+  color: var(--light-text-primary);
+}
+
+.dark-theme .title {
+  color: var(--dark-text-primary);
+}
+
+.subtitle {
+  font-size: 32rpx;
+  opacity: 0.8;
+  color: var(--light-text-primary);
+}
+
+.dark-theme .subtitle {
+  color: var(--dark-text-primary);
+}
+
+/* 呼吸圆圈容器 */
+.breathing-section {
+  margin: 60rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 呼吸方块设计 - 拥抱方块美学 */
+.breath-square {
+  width: 120rpx;
+  height: 120rpx;
+  background: rgba(255, 255, 255, 0.3);
+  border: 3rpx solid rgba(255, 255, 255, 0.6);
+  border-radius: 20rpx;
+  display: block;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 30rpx rgba(255, 255, 255, 0.2);
+}
+
+.dark-theme .breath-square {
+  background: rgba(255, 255, 255, 0.1);
+  border: 3rpx solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 30rpx rgba(255, 255, 255, 0.1);
+}
+
+/* 添加内部装饰 */
+.breath-square::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40rpx;
+  height: 40rpx;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 8rpx;
+  transform: translate(-50%, -50%);
+}
+
+.dark-theme .breath-square::before {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.breath-square.breathing {
+  animation: breatheSquare 4s ease-in-out infinite;
+}
+
+@keyframes breatheSquare {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    border-radius: 20rpx;
+    box-shadow: 0 0 30rpx rgba(255, 255, 255, 0.2);
+  }
+  25% {
+    transform: scale(1.3) rotate(2deg);
+    border-radius: 25rpx;
+    box-shadow: 0 0 50rpx rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    transform: scale(1.5) rotate(0deg);
+    border-radius: 30rpx;
+    box-shadow: 0 0 60rpx rgba(255, 255, 255, 0.5);
+  }
+  75% {
+    transform: scale(1.3) rotate(-2deg);
+    border-radius: 25rpx;
+    box-shadow: 0 0 50rpx rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* 深色主题的动画效果 */
+.dark-theme .breath-square.breathing {
+  animation: breatheSquareDark 4s ease-in-out infinite;
+}
+
+@keyframes breatheSquareDark {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    border-radius: 20rpx;
+    box-shadow: 0 0 30rpx rgba(255, 255, 255, 0.1);
+  }
+  25% {
+    transform: scale(1.3) rotate(2deg);
+    border-radius: 25rpx;
+    box-shadow: 0 0 50rpx rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    transform: scale(1.5) rotate(0deg);
+    border-radius: 30rpx;
+    box-shadow: 0 0 60rpx rgba(255, 255, 255, 0.25);
+  }
+  75% {
+    transform: scale(1.3) rotate(-2deg);
+    border-radius: 25rpx;
+    box-shadow: 0 0 50rpx rgba(255, 255, 255, 0.2);
+  }
+}
+
+.description {
+  text-align: center;
+  margin: 60rpx 0 40rpx 0;
+}
+
+.description-text {
+  font-size: 28rpx;
+  opacity: 0.8;
+  color: var(--light-text-primary);
+  line-height: 1.6;
+}
+
+.dark-theme .description-text {
+  color: var(--dark-text-primary);
+}
+
+.footer {
+  width: 100%;
+  margin-top: 60rpx;
+  padding: 0 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 按钮样式 - 不再使用navigator */
+
+.btn {
+  width: 280rpx;
+  height: 96rpx;
+  padding: 0;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  border: none !important;
+  outline: none !important;
+  color: white;
+  background: none;
+  box-shadow: none !important;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.btn:active {
+  transform: scale(0.98);
+  opacity: 0.8;
+}
+
+.btn-primary {
+  background: var(--light-button-primary);
+  color: white;
+}
+
+.dark-theme .btn-primary {
+  background: var(--dark-button-primary);
+  color: var(--dark-text-primary);
+}
+
+.forest-glow {
+  box-shadow: 0 8rpx 32rpx rgba(148, 159, 151, 0.3);
+}
+
+.dark-theme .forest-glow {
+  box-shadow: 0 8rpx 32rpx rgba(255, 255, 255, 0.1);
+}
+
+/* 署名样式 */
+.credit {
+  position: absolute;
+  bottom: 40rpx;
+  width: 100%;
+  text-align: center;
+}
+
+.credit-text {
+  font-size: 24rpx;
+  opacity: 0.6;
+  color: var(--light-text-primary);
+  letter-spacing: 2rpx;
+}
+
+.dark-theme .credit-text {
+  color: var(--dark-text-primary);
+}
+
+/* 音频控制样式 - 简化为单一按钮 */
+.audio-controls {
+  position: fixed;
+  top: 120rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* 音乐控制按钮 */
+.music-control {
+  position: absolute;
+  top: 40rpx;
+  left: 40rpx;
+  z-index: 100;
+}
+
+.music-note {
+  font-size: 48rpx;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.music-note.playing {
+  color: #6B8A7A;
+}
+
+.music-note.paused {
+  color: #888888;
+}
+
+.music-note:active {
+  transform: scale(0.9);
+}
+
+/* 深色主题下的音乐音符 */
+.dark-theme .music-note.playing,
+page.dark .music-note.playing {
+  color: #6B8A7A;
+}
+
+.dark-theme .music-note.paused,
+page.dark .music-note.paused {
+  color: #666666;
+}

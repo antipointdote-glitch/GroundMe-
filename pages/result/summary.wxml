@@ -1,0 +1,64 @@
+<!--pages/result/summary.wxml-->
+<view class="container {{isDarkMode ? 'dark-theme' : 'light-theme'}}">
+  <!-- 完成消息 -->
+  <view class="message-section content-fade-in">
+    <!-- 像素风兔子IP -->
+    <view class="pixel-rabbit">
+      <view class="pixel-row">
+        <view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel transparent"></view><view class="pixel transparent"></view>
+      </view>
+      <view class="pixel-row">
+        <view class="pixel transparent"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel transparent"></view>
+      </view>
+      <view class="pixel-row">
+        <view class="pixel body"></view><view class="pixel body"></view><view class="pixel transparent"></view><view class="pixel eye"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel eye"></view><view class="pixel transparent"></view><view class="pixel body"></view><view class="pixel body"></view>
+      </view>
+      <view class="pixel-row">
+        <view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view>
+      </view>
+      <view class="pixel-row">
+        <view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel transparent"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel transparent"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view>
+      </view>
+      <view class="pixel-row">
+        <view class="pixel transparent"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel transparent"></view>
+      </view>
+      <view class="pixel-row">
+        <view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel transparent"></view><view class="pixel transparent"></view>
+      </view>
+      <view class="pixel-row">
+        <view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel transparent"></view>
+      </view>
+      <view class="pixel-row">
+        <view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel transparent"></view><view class="pixel transparent"></view>
+      </view>
+      <view class="pixel-row">
+        <view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel transparent"></view><view class="pixel transparent"></view>
+      </view>
+      <view class="pixel-row">
+        <view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel body"></view><view class="pixel transparent"></view><view class="pixel transparent"></view>
+      </view>
+      <view class="pixel-row">
+        <view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel body"></view><view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel body"></view><view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel transparent"></view>
+      </view>
+      <view class="pixel-row">
+        <view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel body"></view><view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel transparent"></view><view class="pixel body"></view><view class="pixel transparent"></view>
+      </view>
+    </view>
+    
+    <view class="message-group">
+      <view class="message-text">你已经回到当下</view>
+      <view class="message-text">你现在是安全的</view>
+    </view>
+  </view>
+  
+  <!-- 操作按钮 -->
+  <view class="action-section">
+    <button class="btn btn-primary forest-glow" bindtap="restart">再来一次</button>
+    <button class="btn btn-outline" bindtap="finish">回到首页</button>
+  </view>
+  
+  <!-- 底部署名 -->
+  <view class="credit">
+    <text class="credit-text">room800 | Music By Zøe</text>
+  </view>
+</view>

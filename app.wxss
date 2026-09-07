@@ -1,0 +1,370 @@
+/**app.wxss**/
+/* GroundMe 主题色彩系统 */
+page {
+  /* 浅色主题变量 */
+  --light-bg-primary: #EEE9D0;
+  --light-bg-secondary: #C8D5C5;
+  --light-bg-accent: #EBE2AA;
+  --light-text-primary: #949F97;
+  --light-text-secondary: rgba(148, 159, 151, 0.7);
+  --light-text-tertiary: rgba(148, 159, 151, 0.5);
+  --light-button-primary: #949F97;
+  --light-button-secondary: rgba(148, 159, 151, 0.3);
+  --light-card-bg: rgba(255, 255, 255, 0.5);
+  --light-border: rgba(148, 159, 151, 0.3);
+  
+  /* 深色主题变量 - 基于v0设计 */
+  --dark-bg-primary: #1C2522;
+  --dark-bg-secondary: #2A3A35;
+  --dark-bg-accent: #6B8A7A;
+  --dark-text-primary: #E4E6E3;
+  --dark-text-secondary: #8E9E98;
+  --dark-text-tertiary: rgba(142, 158, 152, 0.7);
+  --dark-button-primary: #6B8A7A;
+  --dark-button-secondary: rgba(107, 138, 122, 0.2);
+  --dark-button-outline: rgba(107, 138, 122, 0.3);
+  --dark-card-bg: rgba(42, 58, 53, 0.5);
+  --dark-border: rgba(107, 138, 122, 0.3);
+  --dark-circle-outer: rgba(174, 189, 194, 0.1);
+  --dark-circle-middle: rgba(174, 189, 194, 0.2);
+  --dark-circle-inner: rgba(174, 189, 194, 0.3);
+  --dark-circle-center: #272D2D;
+  
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, 
+    'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+  font-size: 32rpx;
+  line-height: 1.6;
+  height: 100vh;
+  
+  /* 默认浅色主题 */
+  background: linear-gradient(135deg, var(--light-bg-secondary) 0%, var(--light-bg-accent) 50%, var(--light-bg-primary) 100%);
+  color: var(--light-text-primary);
+}
+
+/* 深色主题 */
+.dark-theme,
+page.dark,
+page[data-theme="dark"] {
+  background: linear-gradient(135deg, var(--dark-bg-primary) 0%, var(--dark-bg-secondary) 50%, var(--dark-bg-primary) 100%) !important;
+  color: var(--dark-text-primary);
+}
+
+/* 深色主题容器背景 */
+.dark-theme .container,
+page.dark .container {
+  background: transparent;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 60rpx;
+  font-weight: bold;
+  color: var(--light-text-primary);
+  margin-top: 60rpx;
+  text-shadow: 0 2rpx 8rpx rgba(148, 159, 151, 0.1);
+  transition: all 0.3s ease;
+}
+
+.dark-theme .title,
+page.dark .title {
+  color: var(--dark-text-primary);
+  text-shadow: 0 2rpx 8rpx rgba(228, 230, 227, 0.1);
+}
+
+.subtitle {
+  font-size: 36rpx;
+  color: var(--light-text-secondary);
+  margin-top: 10rpx;
+  margin-bottom: 60rpx;
+  text-shadow: 0 2rpx 4rpx rgba(148, 159, 151, 0.05);
+}
+
+.dark-theme .subtitle,
+page.dark .subtitle {
+  color: var(--dark-text-secondary);
+  text-shadow: 0 2rpx 4rpx rgba(142, 158, 152, 0.1);
+}
+
+.btn {
+  width: 100%;
+  max-width: 600rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  font-weight: 500;
+  background-color: var(--light-button-secondary);
+  color: #5A6B5D;
+  margin-bottom: 40rpx;
+  border: 2rpx solid var(--light-border);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10rpx);
+  box-shadow: 0 8rpx 32rpx rgba(148, 159, 151, 0.2), 
+              0 16rpx 80rpx rgba(148, 159, 151, 0.1), 
+              inset 0 2rpx 0 rgba(255, 255, 255, 0.1);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12rpx 48rpx rgba(148, 159, 151, 0.3);
+}
+
+.btn-primary {
+  background-color: var(--light-button-primary);
+  color: white;
+}
+
+.dark-theme .btn,
+page.dark .btn {
+  background-color: var(--dark-button-secondary);
+  color: var(--dark-text-primary);
+  border-color: var(--dark-border);
+  box-shadow: 0 8rpx 32rpx rgba(107, 138, 122, 0.2), 
+              0 16rpx 80rpx rgba(107, 138, 122, 0.1), 
+              inset 0 2rpx 0 rgba(228, 230, 227, 0.1);
+}
+
+.dark-theme .btn:hover,
+page.dark .btn:hover {
+  box-shadow: 0 12rpx 48rpx rgba(107, 138, 122, 0.3);
+}
+
+.dark-theme .btn-primary,
+page.dark .btn-primary {
+  background-color: var(--dark-button-primary);
+  color: var(--dark-bg-primary);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* 呼吸动画 */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+@keyframes breathe-slow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+.breathe-animation {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.breathe-slow {
+  animation: breathe-slow 6s ease-in-out infinite;
+}
+
+/* 浮动动画 */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0rpx);
+  }
+  50% {
+    transform: translateY(-20rpx);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* 发光效果 */
+.forest-glow {
+  box-shadow: 0 8rpx 40rpx rgba(148, 159, 151, 0.2), 
+              0 16rpx 80rpx rgba(148, 159, 151, 0.1), 
+              inset 0 2rpx 0 rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .forest-glow,
+page.dark .forest-glow {
+  box-shadow: 0 8rpx 40rpx rgba(107, 138, 122, 0.2), 
+              0 16rpx 80rpx rgba(107, 138, 122, 0.1), 
+              inset 0 2rpx 0 rgba(228, 230, 227, 0.1);
+}
+
+/* 卡片样式 */
+.card {
+  background: var(--light-card-bg);
+  border-radius: 24rpx;
+  padding: 40rpx;
+  backdrop-filter: blur(20rpx);
+  border: 2rpx solid var(--light-border);
+  transition: all 0.3s ease;
+}
+
+.dark-theme .card,
+page.dark .card {
+  background: var(--dark-card-bg);
+  border-color: var(--dark-border);
+}
+
+/* 进度指示器 */
+.progress-dots {
+  display: flex;
+  justify-content: center;
+  gap: 16rpx;
+  margin-bottom: 60rpx;
+}
+
+.progress-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: var(--light-button-secondary);
+  transition: all 0.3s ease;
+}
+
+.progress-dot.active {
+  background-color: var(--light-button-primary);
+  transform: scale(1.2);
+}
+
+.dark-theme .progress-dot,
+page.dark .progress-dot {
+  background-color: var(--dark-button-secondary);
+}
+
+.dark-theme .progress-dot.active,
+page.dark .progress-dot.active {
+  background-color: var(--dark-button-primary);
+}
+
+/* 主题切换按钮 */
+.theme-toggle {
+  position: fixed;
+  top: 60rpx;
+  right: 60rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2rpx solid var(--light-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  color: var(--light-text-primary);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10rpx);
+}
+
+/* 全局页面过渡动画 */
+.page-enter {
+  animation: pageEnter 0.8s ease-out forwards;
+}
+
+.page-exit {
+  animation: pageExit 0.4s ease-in forwards;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20rpx) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pageExit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-15rpx) scale(1.02);
+  }
+}
+
+/* 内容渐入动画 - 更柔和 */
+.content-fade-in {
+  animation: contentFadeIn 1s ease-out forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+@keyframes contentFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(25rpx) scale(0.95);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(5rpx) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 内容渐出动画 - 更柔和 */
+.content-fade-out {
+  animation: contentFadeOut 0.5s ease-in forwards;
+}
+
+@keyframes contentFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    opacity: 0.6;
+    transform: translateY(-5rpx) scale(1.02);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-15rpx) scale(1.05);
+  }
+}
+
+/* 深色模式下的平滑过渡 */
+.dark-theme,
+page.dark {
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.dark-theme .theme-toggle,
+page.dark .theme-toggle {
+  background: rgba(42, 58, 53, 0.2);
+  border-color: var(--dark-border);
+  color: var(--dark-text-primary);
+  backdrop-filter: blur(10rpx);
+}

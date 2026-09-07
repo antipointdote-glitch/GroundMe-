@@ -1,0 +1,261 @@
+/* pages/grounding/intro.wxss */
+
+/* 页面容器样式 */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 40rpx;
+  position: relative;
+  background: linear-gradient(135deg, var(--light-bg-secondary) 0%, var(--light-bg-accent) 50%, var(--light-bg-primary) 100%);
+  color: var(--light-text-primary);
+  transition: background 0.5s ease;
+  justify-content: space-between;
+}
+
+/* 深色主题页面背景 */
+.dark-theme {
+  background: linear-gradient(135deg, #1C2522 0%, #2A3A35 50%, #1C2522 100%) !important;
+  min-height: 100vh;
+  transition: background 0.5s ease;
+}
+
+/* 音乐控制按钮 */
+.music-control {
+  position: absolute;
+  top: 40rpx;
+  left: 40rpx;
+  z-index: 100;
+}
+
+.music-note {
+  font-size: 48rpx;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.music-note.playing {
+  color: #6B8A7A;
+}
+
+.music-note.paused {
+  color: #888888;
+}
+
+.music-note:active {
+  transform: scale(0.9);
+}
+
+/* 深色主题下的音乐音符 */
+.dark-theme .music-note.playing,
+page.dark .music-note.playing {
+  color: #6B8A7A;
+}
+
+.dark-theme .music-note.paused,
+page.dark .music-note.paused {
+  color: #666666;
+}
+
+/* 主要内容 */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 60rpx; /* 给音乐按钮留空间 */
+}
+
+/* 标题区域 */
+.header {
+  text-align: center;
+  margin-bottom: 60rpx;
+}
+
+.title {
+  font-size: 48rpx;
+  font-weight: 600;
+  color: var(--light-text-primary);
+  margin-bottom: 16rpx;
+}
+
+.dark-theme .title,
+page.dark .title {
+  color: var(--dark-text-primary);
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: var(--light-text-secondary);
+  line-height: 1.5;
+}
+
+.dark-theme .subtitle,
+page.dark .subtitle {
+  color: var(--dark-text-secondary);
+}
+
+/* 说明内容 */
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40rpx;
+}
+
+.section {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20rpx;
+  padding: 30rpx;
+  backdrop-filter: blur(20rpx);
+  border: 1rpx solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-theme .section,
+page.dark .section {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--light-text-primary);
+  margin-bottom: 20rpx;
+}
+
+.dark-theme .section-title,
+page.dark .section-title {
+  color: var(--dark-text-primary);
+}
+
+/* 步骤列表 */
+.step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20rpx;
+}
+
+.step-number {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  background: rgba(107, 138, 122, 0.3);
+  color: var(--light-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 4rpx;
+}
+
+.dark-theme .step-number,
+page.dark .step-number {
+  background: rgba(107, 138, 122, 0.4);
+  color: var(--dark-text-primary);
+}
+
+.step-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.step-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: var(--light-text-primary);
+}
+
+.dark-theme .step-name,
+page.dark .step-name {
+  color: var(--dark-text-primary);
+}
+
+.step-desc {
+  font-size: 24rpx;
+  color: var(--light-text-secondary);
+  line-height: 1.4;
+}
+
+.dark-theme .step-desc,
+page.dark .step-desc {
+  color: var(--dark-text-secondary);
+}
+
+
+/* 操作按钮 */
+.action-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  margin-top: 40rpx;
+  margin-bottom: 80rpx; /* 增加底部间距，避免与署名重叠 */
+  flex-shrink: 0;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2rpx solid var(--light-border);
+  color: var(--light-text-primary);
+}
+
+.dark-theme .btn-outline,
+page.dark .btn-outline {
+  border-color: rgba(107, 138, 122, 0.3);
+  color: #6B8A7A;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--light-button-secondary);
+}
+
+.dark-theme .btn-outline:hover,
+page.dark .btn-outline:hover {
+  background: rgba(107, 138, 122, 0.1);
+}
+
+/* 底部署名 */
+.credit {
+  position: absolute;
+  bottom: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.credit-text {
+  font-size: 24rpx;
+  color: var(--light-text-tertiary);
+}
+
+.dark-theme .credit-text,
+page.dark .credit-text {
+  color: var(--dark-text-tertiary);
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intro-content {
+  animation: fadeInUp 0.6s ease-out;
+}

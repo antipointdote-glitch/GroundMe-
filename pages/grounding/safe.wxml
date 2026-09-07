@@ -1,0 +1,44 @@
+<!--pages/grounding/safe.wxml-->
+<view class="container {{isDarkMode ? 'dark-theme' : 'light-theme'}}">
+  <!-- 音乐控制按钮 -->
+  <view class="music-control">
+    <text class="music-note {{isMusicPlaying ? 'playing' : 'paused'}}" bindtap="toggleMusic">♪</text>
+  </view>
+
+  <!-- 主要内容 -->
+  <view class="main-content">
+    <!-- 标题 -->
+    <view class="header">
+      <view class="title">自我确认</view>
+      <view class="subtitle">与自己建立连接，回到当下</view>
+    </view>
+
+    <!-- 确认内容 -->
+    <view class="affirmation-section">
+      <view class="affirmation-card">
+        <view class="affirmation-text">我是 <text class="highlight">{{userName || '您的名字'}}</text></view>
+        <view class="affirmation-text">我在 <text class="highlight">{{userLocation || '您所在的地方'}}</text></view>
+        <view class="affirmation-text">我现在是 <text class="highlight">安全的</text></view>
+      </view>
+      
+      <view class="guidance-text">
+        请在心中默念这些话，感受当下的安全感
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-section">
+    <button class="btn btn-primary forest-glow" bindtap="startPractice">
+      确认并继续
+    </button>
+    <button class="btn btn-outline" bindtap="onBack">
+      返回
+    </button>
+  </view>
+
+  <!-- 底部署名 -->
+  <view class="credit">
+    <text class="credit-text">room800 | Music By Zøe</text>
+  </view>
+</view>

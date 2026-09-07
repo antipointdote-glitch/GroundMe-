@@ -1,0 +1,115 @@
+<!--pages/practice/steps.wxml-->
+<view class="container {{isDarkMode ? 'dark-theme' : 'light-theme'}}">
+  <!-- 音乐控制按钮 -->
+  <view class="music-control">
+    <text class="music-note {{isMusicPlaying ? 'playing' : 'paused'}}" bindtap="toggleMusic">♪</text>
+  </view>
+
+  <!-- 进度指示器 -->
+  <view class="progress-dots">
+    <view wx:for="{{totalSteps}}" wx:key="index" 
+          class="progress-dot {{index < currentStep ? 'active' : ''}}"></view>
+  </view>
+  
+  <!-- 标题 -->
+  <view class="header">
+    <view class="title">Let's Ground</view>
+    <view class="subtitle">感受当下</view>
+  </view>
+  
+  <!-- 主要步骤内容 -->
+  <view class="main-content">
+    <!-- 步骤1：视觉 -->
+    <view class="step-content" wx:if="{{currentStep === 1}}">
+      <view class="step-circle forest-glow">
+        <text class="step-number">5</text>
+      </view>
+      <view class="instruction-card card forest-glow">
+        <view class="instruction-text">{{groundingSteps[0].instruction}}</view>
+        <view class="examples-section">
+          <view class="examples-label">例如：</view>
+          <view class="examples-list">
+            <text wx:for="{{groundingSteps[0].examples}}" wx:key="index" class="example-item">{{item}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 步骤2：触觉 -->
+    <view class="step-content" wx:if="{{currentStep === 2}}">
+      <view class="step-circle forest-glow">
+        <text class="step-number">4</text>
+      </view>
+      <view class="instruction-card card forest-glow">
+        <view class="instruction-text">{{groundingSteps[1].instruction}}</view>
+        <view class="examples-section">
+          <view class="examples-label">例如：</view>
+          <view class="examples-list">
+            <text wx:for="{{groundingSteps[1].examples}}" wx:key="index" class="example-item">{{item}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 步骤3：听觉 -->
+    <view class="step-content" wx:if="{{currentStep === 3}}">
+      <view class="step-circle forest-glow">
+        <text class="step-number">3</text>
+      </view>
+      <view class="instruction-card card forest-glow">
+        <view class="instruction-text">{{groundingSteps[2].instruction}}</view>
+        <view class="examples-section">
+          <view class="examples-label">例如：</view>
+          <view class="examples-list">
+            <text wx:for="{{groundingSteps[2].examples}}" wx:key="index" class="example-item">{{item}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 步骤4：嗅觉 -->
+    <view class="step-content" wx:if="{{currentStep === 4}}">
+      <view class="step-circle forest-glow">
+        <text class="step-number">2</text>
+      </view>
+      <view class="instruction-card card forest-glow">
+        <view class="instruction-text">{{groundingSteps[3].instruction}}</view>
+        <view class="examples-section">
+          <view class="examples-label">例如：</view>
+          <view class="examples-list">
+            <text wx:for="{{groundingSteps[3].examples}}" wx:key="index" class="example-item">{{item}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 步骤5：味觉 -->
+    <view class="step-content" wx:if="{{currentStep === 5}}">
+      <view class="step-circle forest-glow">
+        <text class="step-number">1</text>
+      </view>
+      <view class="instruction-card card forest-glow">
+        <view class="instruction-text">{{groundingSteps[4].instruction}}</view>
+        <view class="examples-section">
+          <view class="examples-label">例如：</view>
+          <view class="examples-list">
+            <text wx:for="{{groundingSteps[4].examples}}" wx:key="index" class="example-item">{{item}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 操作按钮 -->
+  <view class="action-section">
+    <button class="btn btn-primary forest-glow" bindtap="nextStep">
+      {{currentStep < totalSteps ? '下一步' : '完成练习'}}
+    </button>
+    <button class="btn btn-outline" bindtap="goBack">返回</button>
+  </view>
+  
+  <!-- 底部署名 -->
+  <view class="credit">
+    <text class="credit-text">room800 | Music By Zøe</text>
+  </view>
+</view>

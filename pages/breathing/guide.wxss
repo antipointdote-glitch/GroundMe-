@@ -1,0 +1,407 @@
+/* pages/breathing/guide.wxss */
+
+/* 音乐控制按钮 */
+.music-control {
+  position: absolute;
+  top: 40rpx;
+  left: 40rpx;
+  z-index: 100;
+}
+
+.music-note {
+  font-size: 48rpx;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.music-note.playing {
+  color: #6B8A7A;
+}
+
+.music-note.paused {
+  color: #888888;
+}
+
+.music-note:active {
+  transform: scale(0.9);
+}
+
+/* 深色主题下的音乐音符 */
+.dark-theme .music-note.playing,
+page.dark .music-note.playing {
+  color: #6B8A7A;
+}
+
+.dark-theme .music-note.paused,
+page.dark .music-note.paused {
+  color: #666666;
+}
+
+/* 顶部区域（进度指示器 + 标题） */
+.top-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* 进度指示器样式 */
+.progress-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12rpx;
+  margin-bottom: 20rpx;
+  padding: 0;
+}
+
+.progress-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1rpx solid rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.progress-dot.active {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 12rpx rgba(255, 255, 255, 0.5);
+}
+
+/* 深色主题下的进度指示器 */
+.dark-theme .progress-dot,
+page.dark .progress-dot {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark-theme .progress-dot.active,
+page.dark .progress-dot.active {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 12rpx rgba(255, 255, 255, 0.3);
+}
+
+/* 页面容器样式 */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 40rpx;
+  position: relative;
+  background: linear-gradient(135deg, var(--light-bg-secondary) 0%, var(--light-bg-accent) 50%, var(--light-bg-primary) 100%);
+  color: var(--light-text-primary);
+  transition: background 0.5s ease;
+  justify-content: space-between; /* 让各部分均匀分布 */
+}
+
+/* 深色主题页面背景 */
+.dark-theme {
+  background: linear-gradient(135deg, #1C2522 0%, #2A3A35 50%, #1C2522 100%) !important;
+  min-height: 100vh;
+  transition: background 0.5s ease;
+}
+
+.header {
+  text-align: center;
+  flex-shrink: 0; /* 防止收缩 */
+}
+
+.title {
+  font-size: 44rpx; /* 稍微减小字体 */
+  font-weight: 600;
+  color: var(--light-text-primary);
+  margin-bottom: 12rpx; /* 适中的间距 */
+}
+
+.dark-theme .title,
+page.dark .title {
+  color: var(--dark-text-primary);
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: var(--light-text-secondary);
+}
+
+.dark-theme .subtitle,
+page.dark .subtitle {
+  color: var(--dark-text-secondary);
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* 中央区域居中 */
+  width: 100%;
+  flex-shrink: 0; /* 防止收缩 */
+}
+
+/* 呼吸动画区域 */
+.breathing-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* 引导文字区域 */
+.guidance-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.breathing-square-container {
+  position: relative;
+  width: 280rpx;
+  height: 280rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 呼吸方块层级设计 */
+.square-outer {
+  position: absolute;
+  width: 280rpx; /* 恢复合适的尺寸配合容器 */
+  height: 280rpx;
+  border-radius: 40rpx;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2rpx solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20rpx);
+  box-shadow: 0 0 40rpx rgba(255, 255, 255, 0.15);
+  transition: all 0.5s ease-in-out;
+  transform-origin: center center; /* 确保缩放以中心为基准 */
+}
+
+.square-middle {
+  position: absolute;
+  width: 200rpx; /* 恢复合适的比例 */
+  height: 200rpx;
+  border-radius: 30rpx;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2rpx solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20rpx);
+  box-shadow: 0 0 30rpx rgba(255, 255, 255, 0.2);
+  transition: all 0.5s ease-in-out;
+  transform-origin: center center; /* 确保缩放以中心为基准 */
+}
+
+.square-inner {
+  position: absolute;
+  width: 130rpx; /* 恢复合适的比例 */
+  height: 130rpx;
+  border-radius: 20rpx;
+  background: rgba(255, 255, 255, 0.4);
+  border: 2rpx solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20rpx);
+  box-shadow: 0 0 20rpx rgba(255, 255, 255, 0.25);
+  transition: all 0.5s ease-in-out;
+  transform-origin: center center; /* 确保缩放以中心为基准 */
+}
+
+.square-center {
+  position: absolute;
+  width: 75rpx; /* 恢复合适的比例 */
+  height: 75rpx;
+  border-radius: 15rpx;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2rpx solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 25rpx rgba(255, 255, 255, 0.4);
+}
+
+/* 深色主题下的方块 */
+.dark-theme .square-outer,
+page.dark .square-outer {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 40rpx rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .square-middle,
+page.dark .square-middle {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 30rpx rgba(255, 255, 255, 0.08);
+}
+
+.dark-theme .square-inner,
+page.dark .square-inner {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 20rpx rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .square-center,
+page.dark .square-center {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 25rpx rgba(255, 255, 255, 0.15);
+}
+
+/* 呼吸动画状态 - 优化性能版本 */
+.breathe-in {
+  transform: scale(1.15); /* 恢复适当的缩放比例，现在有足够空间 */
+  transition: transform 4s ease-in-out;
+  will-change: transform; /* 优化GPU加速 */
+}
+
+.breathe-hold {
+  transform: scale(1.2);  /* 恢复适当的保持状态缩放 */
+  transition: none;       /* 不要过渡动画，立即停止 */
+  will-change: auto;      /* 停止GPU优化 */
+}
+
+.breathe-out {
+  transform: scale(0.8);
+  transition: transform 4s ease-in-out; /* 匹配减短的呼气时间 */
+  will-change: transform; /* 优化GPU加速 */
+}
+
+.breathe-rest {
+  transform: scale(1);
+  transition: transform 1s ease-in-out;
+  will-change: auto;      /* 停止GPU优化 */
+}
+
+/* 准备状态与休息状态保持一致的基准位置 */
+.breathe-prepare {
+  transform: scale(1);
+  transition: transform 1s ease-in-out;
+  will-change: auto;
+}
+
+/* 简化动画延迟，减少性能消耗 */
+.square-middle.breathe-in,
+.square-middle.breathe-out {
+  transition-delay: 0.05s;
+}
+
+.square-inner.breathe-in,
+.square-inner.breathe-out {
+  transition-delay: 0.1s;
+}
+
+.phase-text {
+  text-align: center;
+}
+
+.breath-text {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: var(--light-text-primary);
+  line-height: 1.4;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.dark-theme .breath-text,
+page.dark .breath-text {
+  color: var(--dark-text-primary);
+}
+
+.guidance-text {
+  font-size: 28rpx;
+  color: var(--light-text-secondary);
+  text-align: center;
+}
+
+.dark-theme .guidance-text,
+page.dark .guidance-text {
+  color: var(--dark-text-secondary);
+}
+
+.action-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  flex-shrink: 0; /* 防止按钮区域被压缩 */
+  margin-bottom: 60rpx; /* 与5-4-3-2-1页面保持一致，稍微往上调整 */
+}
+
+/* 完成后的按钮组 */
+.completed-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  width: 100%;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2rpx solid var(--light-border);
+  color: var(--light-text-primary);
+}
+
+.dark-theme .btn-outline,
+page.dark .btn-outline {
+  border-color: rgba(107, 138, 122, 0.3);
+  color: #6B8A7A;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--light-button-secondary);
+}
+
+.dark-theme .btn-outline:hover,
+page.dark .btn-outline:hover {
+  background: rgba(107, 138, 122, 0.1);
+}
+
+/* 禁用按钮样式 */
+.btn-disabled {
+  background: rgba(128, 128, 128, 0.3) !important;
+  border: 2rpx solid rgba(128, 128, 128, 0.5) !important;
+  color: rgba(128, 128, 128, 0.7) !important;
+  box-shadow: none !important;
+  cursor: not-allowed;
+}
+
+.btn-disabled:hover {
+  background: rgba(128, 128, 128, 0.3) !important;
+  transform: none !important;
+}
+
+/* 深色主题下的禁用按钮 */
+.dark-theme .btn-disabled,
+page.dark .btn-disabled {
+  background: rgba(64, 64, 64, 0.3) !important;
+  border-color: rgba(64, 64, 64, 0.5) !important;
+  color: rgba(128, 128, 128, 0.6) !important;
+}
+
+.credit {
+  position: absolute;
+  bottom: 20rpx; /* 稍微上移一点 */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.credit-text {
+  font-size: 24rpx;
+  color: var(--light-text-tertiary);
+}
+
+.dark-theme .credit-text,
+page.dark .credit-text {
+  color: var(--dark-text-tertiary);
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

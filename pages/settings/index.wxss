@@ -1,0 +1,227 @@
+/* pages/settings/index.wxss */
+
+/* 深色主题页面背景 */
+.dark-theme {
+  background: linear-gradient(135deg, #1C2522 0%, #2A3A35 50%, #1C2522 100%) !important;
+  min-height: 100vh;
+  transition: background 0.5s ease;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60rpx;
+  padding-top: 40rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: var(--light-text-primary);
+}
+
+.dark-theme .title,
+page.dark .title {
+  color: var(--dark-text-primary);
+}
+
+.main-content {
+  padding: 0 40rpx;
+  margin-bottom: 120rpx;
+}
+
+.setting-section {
+  margin-bottom: 60rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: var(--light-text-secondary);
+  margin-bottom: 30rpx;
+  padding-left: 20rpx;
+}
+
+.dark-theme .section-title,
+page.dark .section-title {
+  color: var(--dark-text-secondary);
+}
+
+.setting-item {
+  background: var(--light-bg-secondary);
+  border-radius: 16rpx;
+  padding: 32rpx 24rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.dark-theme .setting-item,
+page.dark .setting-item {
+  background: rgba(107, 138, 122, 0.1);
+  backdrop-filter: blur(20rpx);
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.2);
+}
+
+.setting-label {
+  flex: 1;
+}
+
+.label-text {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: var(--light-text-primary);
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.dark-theme .label-text,
+page.dark .label-text {
+  color: var(--dark-text-primary);
+}
+
+.label-desc {
+  font-size: 24rpx;
+  color: var(--light-text-tertiary);
+}
+
+.dark-theme .label-desc,
+page.dark .label-desc {
+  color: var(--dark-text-tertiary);
+}
+
+.setting-switch {
+  margin-left: 20rpx;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  width: 300rpx;
+  margin-left: 20rpx;
+}
+
+.volume-slider {
+  flex: 1;
+  margin-right: 20rpx;
+}
+
+.volume-text {
+  font-size: 24rpx;
+  color: var(--light-text-secondary);
+  min-width: 60rpx;
+  text-align: right;
+}
+
+.dark-theme .volume-text,
+page.dark .volume-text {
+  color: var(--dark-text-secondary);
+}
+
+.action-section {
+  position: fixed;
+  bottom: 80rpx;
+  left: 0;
+  right: 0;
+  padding: 0 40rpx;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2rpx solid var(--light-border);
+  color: var(--light-text-primary);
+}
+
+.dark-theme .btn-outline,
+page.dark .btn-outline {
+  border-color: rgba(107, 138, 122, 0.3);
+  color: #6B8A7A;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--light-button-secondary);
+}
+
+.dark-theme .btn-outline:hover,
+page.dark .btn-outline:hover {
+  background: rgba(107, 138, 122, 0.1);
+}
+
+.credit {
+  position: absolute;
+  bottom: 30rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.credit-text {
+  font-size: 24rpx;
+  color: var(--light-text-tertiary);
+}
+
+.dark-theme .credit-text,
+page.dark .credit-text {
+  color: var(--dark-text-tertiary);
+}
+
+/* 音乐选择器样式 */
+.music-selector {
+  min-width: 200rpx;
+}
+
+.picker-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 20rpx;
+  background: var(--light-bg-secondary);
+  border-radius: 12rpx;
+  border: 2rpx solid var(--light-border);
+  min-height: 60rpx;
+}
+
+.dark-theme .picker-display,
+page.dark .picker-display {
+  background: rgba(107, 138, 122, 0.1);
+  border-color: var(--dark-border);
+}
+
+.picker-text {
+  font-size: 28rpx;
+  color: var(--light-text-primary);
+  flex: 1;
+}
+
+.dark-theme .picker-text,
+page.dark .picker-text {
+  color: var(--dark-text-primary);
+}
+
+.picker-arrow {
+  font-size: 24rpx;
+  color: var(--light-text-secondary);
+  margin-left: 16rpx;
+  transition: transform 0.2s ease;
+}
+
+.dark-theme .picker-arrow,
+page.dark .picker-arrow {
+  color: var(--dark-text-secondary);
+}
+
+/* 选择器按下状态 */
+.picker-display:active {
+  background: var(--light-button-secondary);
+  transform: scale(0.98);
+}
+
+.dark-theme .picker-display:active,
+page.dark .picker-display:active {
+  background: var(--dark-button-secondary);
+}

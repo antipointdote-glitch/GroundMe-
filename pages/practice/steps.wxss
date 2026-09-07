@@ -1,0 +1,258 @@
+/* pages/practice/steps.wxss */
+
+/* 音乐控制按钮 */
+.music-control {
+  position: absolute;
+  top: 40rpx;
+  left: 40rpx;
+  z-index: 100;
+}
+
+.music-note {
+  font-size: 48rpx;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.music-note.playing {
+  color: #6B8A7A;
+}
+
+.music-note.paused {
+  color: #888888;
+}
+
+.music-note:active {
+  transform: scale(0.9);
+}
+
+/* 深色主题下的音乐音符 */
+.dark-theme .music-note.playing,
+page.dark .music-note.playing {
+  color: #6B8A7A;
+}
+
+.dark-theme .music-note.paused,
+page.dark .music-note.paused {
+  color: #666666;
+}
+
+/* 深色主题页面背景 */
+.dark-theme {
+  background: linear-gradient(135deg, #1C2522 0%, #2A3A35 50%, #1C2522 100%) !important;
+  min-height: 100vh;
+  transition: background 0.5s ease;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60rpx;
+}
+
+.title {
+  font-size: 48rpx;
+  font-weight: 600;
+  color: var(--light-text-primary);
+  margin-bottom: 16rpx;
+}
+
+.dark-theme .title,
+page.dark .title {
+  color: var(--dark-text-primary);
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: var(--light-text-secondary);
+}
+
+.dark-theme .subtitle,
+page.dark .subtitle {
+  color: var(--dark-text-secondary);
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.step-circle {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+  background: var(--light-button-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60rpx;
+  transition: all 0.3s ease;
+}
+
+.dark-theme .step-circle,
+page.dark .step-circle {
+  background: rgba(107, 138, 122, 0.2);
+  backdrop-filter: blur(20rpx);
+}
+
+.step-number {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: var(--light-text-primary);
+}
+
+.dark-theme .step-number,
+page.dark .step-number {
+  color: var(--dark-text-primary);
+}
+
+.instruction-card {
+  width: 100%;
+  max-width: 600rpx;
+  margin-bottom: 80rpx;
+}
+
+.instruction-text {
+  font-size: 36rpx;
+  color: var(--light-text-primary);
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 40rpx;
+  font-weight: 500;
+}
+
+.dark-theme .instruction-text,
+page.dark .instruction-text {
+  color: var(--dark-text-primary);
+}
+
+.examples-section {
+  text-align: center;
+}
+
+.examples-label {
+  font-size: 24rpx;
+  color: var(--light-text-tertiary);
+  margin-bottom: 16rpx;
+}
+
+.dark-theme .examples-label,
+page.dark .examples-label {
+  color: var(--dark-text-tertiary);
+}
+
+.examples-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8rpx;
+}
+
+.example-item {
+  font-size: 24rpx;
+  color: var(--light-text-tertiary);
+  padding: 0 8rpx;
+}
+
+.dark-theme .example-item,
+page.dark .example-item {
+  color: var(--dark-text-tertiary);
+}
+
+.action-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+  margin-bottom: 40rpx;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2rpx solid var(--light-border);
+  color: var(--light-text-primary);
+}
+
+.dark-theme .btn-outline,
+page.dark .btn-outline {
+  border-color: rgba(107, 138, 122, 0.3);
+  color: #6B8A7A;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--light-button-secondary);
+}
+
+.dark-theme .btn-outline:hover,
+page.dark .btn-outline:hover {
+  background: rgba(107, 138, 122, 0.1);
+}
+
+.credit {
+  position: absolute;
+  bottom: 30rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.credit-text {
+  font-size: 24rpx;
+  color: var(--light-text-tertiary);
+}
+
+.dark-theme .credit-text,
+page.dark .credit-text {
+  color: var(--dark-text-tertiary);
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 步骤切换动画 */
+.step-content.transitioning {
+  animation: slideOut 0.3s ease-in forwards;
+}
+
+@keyframes slideOut {
+  to {
+    opacity: 0;
+    transform: translateX(-100rpx);
+  }
+}
+
+.step-content.entering {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

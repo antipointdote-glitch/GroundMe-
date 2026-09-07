@@ -1,0 +1,30 @@
+.breathing-circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.breathing-circle {
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.05s linear, opacity 0.05s linear;
+  box-shadow: 0 0 20rpx rgba(168, 218, 220, 0.3);
+}
+
+.breathing-text {
+  font-size: 32rpx;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: 500;
+  max-width: 80%;
+}
+
+.phase-text {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 10rpx;
+}

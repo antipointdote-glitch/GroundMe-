@@ -1,0 +1,11 @@
+{
+	"ios": {
+		"name": "room800"
+	},
+	"android": {
+		"name": "room800"
+	},
+	"common": {
+		"name": "room800"
+	}
+}
